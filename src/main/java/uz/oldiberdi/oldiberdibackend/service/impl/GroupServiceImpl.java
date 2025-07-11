@@ -25,9 +25,9 @@ public class GroupServiceImpl implements GroupService {
         User owner = userRepository.findById(ownerId)
                 .orElseThrow(() -> new IllegalArgumentException("Owner not found"));
 
-        Set<User> members = groupRequestDto.getMemberIds().stream()
-                .map(id -> userRepository.findById(id)
-                        .orElseThrow(() -> new RuntimeException("User not found: " + id)))
+        Set<User> members = groupRequestDto.getMemberPhones().stream()
+                .map(phoneNumber -> userRepository.findByPhoneNumber(phoneNumber)
+                        .orElseThrow(() -> new RuntimeException("User not found: " + phoneNumber)))
                 .collect(Collectors.toSet());
 
         Group group = Group.builder()

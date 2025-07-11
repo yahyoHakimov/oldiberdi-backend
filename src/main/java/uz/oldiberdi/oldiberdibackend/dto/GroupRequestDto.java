@@ -18,5 +18,5 @@ public class GroupRequestDto {
     private String name;
 
     @NotEmpty
-    private List<Long> memberIds;
+    private List<String> memberPhones;
 }
