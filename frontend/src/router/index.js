@@ -1,6 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import LoginPage from '../pages/LoginPage.vue';
 import CreateGroupPage from "@/pages/CreateGroupPage.vue";
+import MyGroupsPage from "@/pages/MyGroupsPage.vue";
+import DashboardPage from "@/pages/DashboardPage.vue";
+import RegisterPage from "@/pages/RegisterPage.vue";
+import MyDebtsPage from "@/pages/MyDebtsPage.vue";
+import CreateDebtPage from "@/pages/CreateDebtPage.vue";
 // import RegisterPage from '../pages/RegisterPage.vue';
 // import MyDebtsPage from '../pages/MyDebtsPage.vue';
 // import CreateDebtPage from '../pages/CreateDebtPage.vue';
@@ -22,7 +27,7 @@ const routes = [
     name: 'CreateGroup',
     component: CreateGroupPage,
   },
-  /*{
+  {
     path: '/register',
     name: 'Register',
     component: RegisterPage,
@@ -41,7 +46,11 @@ const routes = [
     path: '/groups',
     name: 'MyGroups',
     component: MyGroupsPage,
-  },*/
+  },{
+    path: '/home',
+    name: 'DashboardPage',
+    component: DashboardPage,
+  },
 ];
 
 const router = createRouter({

@@ -1,12 +1,19 @@
 <template>
-  <div>
-    <h2>My Debts</h2>
-    <ul>
-      <li v-for="debt in debts" :key="debt.id">
-        {{ debt.amount }} - {{ debt.status }} - due {{ debt.dueDate }}
-      </li>
-    </ul>
-    <p v-if="error" style="color: red">{{ error }}</p>
+  <div class="container py-4">
+    <h3 class="fw-bold mb-4">My Debts</h3>
+
+    <div v-if="debts.length">
+      <div v-for="debt in debts" :key="debt.id" class="card mb-3 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title mb-2 text-primary">Amount: {{ debt.amount }} UZS</h5>
+          <p class="mb-1"><strong>Status:</strong> {{ debt.status }}</p>
+          <p class="mb-0"><strong>Due Date:</strong> {{ debt.dueDate }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div v-else class="alert alert-info text-center">No debts found.</div>
+    <div v-if="error" class="alert alert-danger text-center">{{ error }}</div>
   </div>
 </template>
 

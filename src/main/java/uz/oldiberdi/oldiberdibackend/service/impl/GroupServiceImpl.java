@@ -40,9 +40,9 @@ public class GroupServiceImpl implements GroupService {
     }
 
     @Override
-    public List<Group> getMyGroups(Long userId) {
-        User user = userRepository.findById(userId)
-                .orElseThrow(() -> new RuntimeException("User not found: " + userId));
+    public List<Group> getMyGroups(Long ownerId) {
+        User user = userRepository.findById(ownerId)
+                .orElseThrow(() -> new RuntimeException("User not found: " + ownerId));
 
         return groupRepository.findByOwner(user);
     }
